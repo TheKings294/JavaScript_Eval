@@ -72,14 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const getAnswer = () => {
-        const goodAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        const goodAnswers = [1, 0, 1, 0, 1, 0, 1, 0, 0, 0]
 
         let goodAnswer = 0
         let badAnswer = 0
 
         for (let i = 1; i <= 10; i++) {
             const form = document.querySelector(`#form-question-${i}`)
-            const answer = goodAnswers[i]
+            const answer = goodAnswers[i-1]
 
             if(!form[answer].checked) {
                 badAnswer++
@@ -101,7 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: ['Bonne Réponse', 'Mauvaise Réponse'],
                 datasets: [{
                     label: 'Réponse',
-                    data: result
+                    data: result,
+                    backgroundColor: [
+                        'rgb(86, 255, 112)',
+                        'rgb(255, 81, 81)',
+                    ]
                 }]
             },
             options: {
